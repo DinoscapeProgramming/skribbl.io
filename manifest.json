@@ -1,0 +1,36 @@
+{
+  "theme_color": "#2a4f92",
+  "background_color": "#000000",
+  "display": "fullscreen",
+  "scope": "/",
+  "start_url": "/",
+  "name": "Skribbl.io",
+  "short_name": "Skribbl",
+  "description": "This version of skribbl.io is a rebuild of the original and free online multiplayer drawing and guessing pictionary game which are both free to play.",
+  "icons": [
+    {
+      "src": "/public/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/public/icons/icon-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/public/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/public/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

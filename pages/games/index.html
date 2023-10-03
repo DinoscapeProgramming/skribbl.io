@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A drawing and guessing game with lots of features">
+  <meta name="theme-color" content="#000000">
+  <title>skribbl.io - Games</title>
+  <link rel="stylesheet" href="/pages/games/style.css">
+  <link rel="icon" href="/public/favicon.ico" type="image/png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/public/favicon.ico">
+  <script defer>
+    const isElectron = Boolean(window.require);
+  </script>
+  <script defer src="/socket.io/socket.io.js"></script>
+  <script defer src="/pages/games/script.js"></script>
+</head>
+<body>
+  <a href="/" style="display: inline-block; margin-bottom: 105px;">
+    <img src="/public/logo.gif" class="logo" id="logo" style="display: block; margin-top: 60px;" alt="Logo">
+  </a>
+  <div class="gameContainer" style="display: flex; flex-direction: row; background-color: white; padding: 0;">
+    <div style="background-image: url(https://skribbl.io/img/clock.gif); height: 64px; font-size: 20px; line-height: 73px; width: 64px; image-rendering: pixelated;">
+      <span>0</span>
+    </div>
+    <span style="color: #4b4a4a; text-align: center; font-size: 22.5px; font-weight: bold; position: absolute; margin-top: 20px; transform: translateX(-50%); left: 50%; letter-spacing: 4px;">
+      <span>Waiting...</span>
+      <span style="font-size: 17.5px; margin-left: 12.5px; letter-spacing: normal;"></span>
+    </span>
+  </div>
+  <div style="flex-direction: row; display: flex;">
+    <div style="display: flex; flex-direction: column; width: 23.5%;"></div>
+    <div class="gameContainer" style="display: flex; width: 51.5%; margin-left: 7.5px; background-color: white; margin-top: 7.5px;">
+      <div id="drawingSpace" style="display: contents;">
+        <canvas style="border: 2px solid #103086; border-radius: 5px;"></canvas>
+        <div style="display: none; border: 2px solid rgb(16, 48, 134); border-radius: 5px; background-color: rgba(0, 0, 0, 0.4); height: 455px;">
+          <div style="margin-top: 2.5%;">
+            <div>
+              <span style="padding: 5%;">Rounds</span>
+            </div>
+            <select class="gameInput" style="width: 50%; margin-top: 1%;"></select>
+          </div>
+          <div style="margin-top: 2%;">
+            <div>
+              <span style="padding: 5%;">Drawtime</span>
+            </div>
+            <select class="gameInput" style="width: 50%; margin-top: 1%;"></select>
+          </div>
+          <textarea class="gameInput" style="width: 80%; height: 20vw; max-height: 20vw; margin-top: 4%; resize: vertical;"></textarea>
+          <div style="margin-top: 0.5%;">
+            <span style="padding: 5%">Use custom words only</span>
+            <input type="checkbox">
+          </div>
+          <button class="gameButton" style="width: 82%; margin-top: 4%;">Start!</button>
+        </div>
+        <div style="display: none; border: 2px solid #103086; border-radius: 5px; background-color: rgba(0, 0, 0, 0.4);">
+          <div style="margin-top: calc(50% - 17.5px);">
+            <button class="gameButton" style="margin-right: 1%; padding: 0 2.5%;"></button>
+            <button class="gameButton" style="padding: 0 2.5%;"></button>
+            <button class="gameButton" style="margin-left: 1%; padding: 0 2.5%;"></button>
+          </div>
+        </div>
+        <div style="display: none; justify-content: center; align-items: center; border: 2px solid #103086; border-radius: 5px; background-color: rgba(0, 0, 0, 0.4);">
+          <div style="margin-bottom: 5%;">
+            <h2 style="font-weight: initial;">The word was <span style="font-weight: bold;"></span></h2>
+            <div style="line-height: 20px;"></div>
+          </div>
+        </div>
+        <div style="display: none; justify-content: center; align-items: center; border: 2px solid rgb(16, 48, 134); border-radius: 5px; background-color: rgba(0, 0, 0, 0.4); height: 529px;">
+          <div style="margin-bottom: 5%;">
+            <h2 style="font-weight: initial; font-size: 175%;">Result</h2>
+            <div style="line-height: 20px;">
+              <div style="display: flex; flex-direction: column; margin-left: 40px; justify-content: flex-end;">
+                <div style="display: flex; justify-content: center; line-height: 27.5px;">
+                  <div>
+                    <div>
+                      <img style="border-radius: 5px; width: 10vw;">
+                      <span style="color: #fdd702; padding: 0 0 0 7.5px; font-size: 30px;">#1</span>
+                    </div>
+                    <span style="display: flex; margin-top: 5px; font-size: 20px;"></span>
+                  </div>
+                </div>
+                <div style="display: flex; flex-direction: row; justify-content: center; margin-top: 20px;">
+                  <div>
+                    <div>
+                      <img style="border-radius: 5px; width: 5vw;">
+                      <span style="color: #bec4c5; padding: 0 0 0 5px; font-size: 17.5px;">#2</span>
+                    </div>
+                    <span style="display: flex; font-size: 15px;"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="drawingTools" style="display: none; background-color: #245195; border-radius: 5px; margin-top: 7.5px;">
+        <input class="gameInput" type="color" style="margin: 2.5%; width: 30%;"> 
+        <select class="gameInput" style="margin: 2.5%; width: 30%;">
+          <option value="2">very thin</option>
+          <option value="4">thin</option>
+          <option value="6">normal</option>
+          <option value="8">broad</option>
+          <option value="10">very broad</option>
+        </select>
+        <div class="gameInput" style="margin: 2.5%; width: 30%; background-color: white; height: 31px;">
+          <img src="/public/trashCan.png" style="margin-top: 2.75px; width: 25px;">
+        </div>
+      </div>
+    </div>
+    <div id="guessingContainer" class="gameContainer" style="display: flex; background-color: white; width: 25%; margin-left: 7.5px; margin-top: 7.5px;">
+      <div style="border: 2px solid #cccccc; border-radius: 4px; overflow-y: auto;"></div>
+      <input class="gameInput" style="margin-top: 5px; height: 30px;" placeholder="Type your guess here...">
+      <button class="gameButton" style="margin: 5px 0 0; height: 35px; font-size: small;">Guess word</button>
+    </div>
+  </div>
+  <div class="playerModal" style="display: none;">
+    <div class="playerModalContent" style="display: flex; border-radius: 12.5px; background-color: rgba(12, 44, 150, 0.75); border: none;">
+      <div style="display: flex; flex-direction: column;">
+        <h2 style="margin: 5px 0 10px; color: white;"></h2>
+        <div style="display: flex; flex-direction: row; margin-top: 5px;">
+          <img style="border-radius: 5px; width: 30%;">
+          <div style="display: contents">
+            <div style="display: none; flex-direction: column;">
+              <button class="gameButton" style="margin: 0 10px; height: 32%; width: 25vw; background-color: #2a51d1;">Mute</button>
+              <button class="gameButton" style="margin: 2% 10px 0 10px; height: 32%; width: 25vw; background-color: #2a51d169;">Kick</button>
+              <button class="gameButton" style="margin: 2% 10px 0 10px; height: 32%; width: 25vw; background-color: #2a51d169;" disabled>Ban</button>
+            </div>
+            <div style="display: none; flex-direction: column;">
+              <h2 style="display: flex; justify-content: center; align-items: center; margin: 0 10px; height: 32%; width: 25vw; color: white; text-align: center; background-color: initial;">Invite your friends!</h2>
+              <input class="gameButton" style="margin: 2% 10px 0px; height: 32%; color: initial; background-color: #ffffffd9;" value="https://skribblio.dinoscapedinosc.repl.co" onclick="this.select();" readonly>
+              <button class="gameButton" style="margin: 2% 10px 0 10px; height: 32%; width: 25vw; background-color: rgb(42, 81, 209);">Copy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span class="playerModalCloseButton" style="display: contents; margin-left: 10px;">&times;</span> 
+    </div>
+  </div>
+</body>
+</html>

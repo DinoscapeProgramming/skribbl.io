@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A drawing and guessing game with lots of features">
+  <meta name="theme-color" content="#000000">
+  <title>skribbl.io - Play</title>
+  <link rel="stylesheet" href="/pages/home/style.css">
+  <link rel="icon" href="/public/favicon.ico" type="image/png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/public/favicon.ico">
+  <script defer>
+    const isElectron = Boolean(window.require);
+  </script>
+  <script defer src="/pages/home/script.js"></script>
+</head>
+<body>
+  <a href="/" style="display: inline-block; margin-bottom: 105px;">
+    <img src="/public/logo.gif" class="logo" id="logo" style="display: block; margin-top: 60px;" alt="Logo">
+  </a>
+  <div class="gameContainer" style="display: flex; background-color: #123595;">
+    <input class="gameInput" placeholder="Username" id="matchMakingInput">
+    <div class="gameContainer" style="display: flex; margin-top: 10px; background-color: #103086; height: 100px;">
+      <div>
+        <div class="leftPlayerIconArrow"></div>
+        <div class="leftPlayerIconArrow" style="margin-top: 35px;"></div>
+        <div class="leftPlayerIconArrow" style="margin-top: 70px;"></div>
+      </div>
+      <img alt="Profile Picture" style="border-radius: 10px; width: 100px; position: absolute; left: 50%; transform: translateX(-50%);">
+      <div>
+        <div class="rightPlayerIconArrow"></div>
+        <div class="rightPlayerIconArrow" style="margin-top: 35px;"></div>
+        <div class="rightPlayerIconArrow" style="margin-top: 70px;"></div>
+      </div>
+    </div>
+    <button class="gameButton" id="matchMakingButton">Play</button>
+  </div>
+  <div class="gameContainer" style="display: flex; flex-direction: row; background-color: #123595; margin-top: 15px;">
+    <div class="gameContainer" style="display: flex; background-color: #0e2e95; float: left; width: calc(50% - 40px);">
+      <span style="font-size: 20px; color: white; font-weight: bold;">About</span>
+      <span style="color: #e8edf0; margin-top: 7.5px;">
+        <span>This version of <span style="font-weight: bold;">skribbl.io</span> is a rebuild of the original and free online multiplayer drawing and guessing pictionary game which are both free to play.</span>
+        <br><br>
+        <span>A normal game consists of multiple players trying to draw and guess the chosen word.</span>
+        <br><br>
+        <span>The person with the most points at the end of the game, will then be crowned as the winner!</span>
+        <br>
+        <span>Have fun!</span>
+      </span>
+    </div>
+    <div class="gameContainer" style="display: flex; background-color: #0e2e95; width: calc(50% - 40px); margin-left: 15px;">
+      <span style="font-size: 20px; color: white; font-weight: bold;">How to play</span>
+      <img alt="Tutorial Graphics" src="/public/steps/step1.gif" style="border-radius: 10px; width: 250px; position: absolute; margin-top: 27.5px; left: 75%; transform: translateX(-50%);">
+      <span style="color: #e8edf0; margin-top: 210px;">1. When it's your turn, choose a word you want to draw!</span>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+html {
+  font-family: Montserrat, "Noto Sans Arabic", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: #245195;
+  background-size: 200vh;
+}
+
+.menuBar {
+  margin-right: 10px;
+  float: left;
+  background-color: #272522;
+  opacity: var(--opacity);
+}
+
+.page {
+  margin-left: 13.5%;
+}
+
+.logo {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+}
+
+.gameContainer {
+  padding: 16px;
+  border-radius: 4px;
+  box-shadow: rgb(0 0 0 / 15%) 0px 2px 4px;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.gameInput {
+  border-radius: 4px;
+  height: 35px;
+  border: 2px solid #cccccc;
+  color: #333333;
+  font-size: 15px;
+  text-align: center;
+}
+
+.gameButton {
+  border-radius: 4px;
+  height: 50px;
+  border: none;
+  color: white;
+  background-color: #53e237;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: 250ms ease-in-out;
+  font-size: larger;
+}
+
+.gameButton:hover {
+  transform: translateY(-1px);
+}
+
+.leftPlayerIconArrow {
+  width: 34px;
+  height: 34px;
+  background-image: url(/public/arrow.gif);
+  background-size: 200%;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: calc(50% - 80px);
+  transform: translateX(-50%);
+  image-rendering: pixelated;
+}
+
+.leftPlayerIconArrow:hover {
+  background-position: 100% 0;
+}
+
+.rightPlayerIconArrow {
+  width: 34px;
+  height: 34px;
+  background-image: url(/public/arrow.gif);
+  background-size: 200%;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  position: absolute;
+  left: calc(50% + 80px);
+  transform: translateX(-50%);
+  image-rendering: pixelated;
+}
+
+.rightPlayerIconArrow:hover {
+  background-position: 100% 100%;
+}
+
+@media only screen and (max-width: 650px) {
+  .menuBar {
+    display: none;
+  }
+  
+  .page {
+    margin: 0;
+  }
+}
