@@ -17,7 +17,7 @@ Ready to start using [Skribbl.io](https://skribblio.dinoscapedinosc.repl.co)? He
 
 2. **Explore Features:** Take a tour of the platform and discover all the powerful features at your disposal.
 
-3. **Create you own Game Room:** Easily join meetings with a single click, whether you're a host or participant.
+3. **Create your own Game Room:** Easily create your own game room with a single click and let your friends play with you.
 
 4. **Collaborate:** Work with other players to guess the word for the current drawing.
 
