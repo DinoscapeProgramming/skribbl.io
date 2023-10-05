@@ -2,8 +2,6 @@
 
 Skribbl.io is an online multiplayer drawing and guessing game where players can have fun guessing words and creating doodles. This repository contains information about the game and its features.
 
-![Skribbl.io](https://your-image-url-here.com/skribbl_screenshot.png)
-
 ## Features
 
 - **Multiplayer Drawing and Guessing:** Enjoy playing with friends or random players from around the world.
