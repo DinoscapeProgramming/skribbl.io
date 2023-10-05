@@ -13,7 +13,7 @@ Skribbl.io is an online multiplayer drawing and guessing game where players can 
 
 Ready to start using [Skribbl.io](https://skribblio.dinoscapedinosc.repl.co)? Here's what you can do:
 
-1. **Open Site** Open our [website](https://skribblio.dinoscapedinosc.repl.co)
+1. **Open Site** Open our [website](https://skribblio.dinoscapedinosc.repl.co) to start your journey on skribbl.io
 
 2. **Explore Features:** Take a tour of the platform and discover all the powerful features at your disposal.
 
