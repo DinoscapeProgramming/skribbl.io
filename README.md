@@ -34,5 +34,4 @@ Stay up to date with the latest news, updates, and tips:
 - **User Community:** Join our user community to share experiences and knowledge with fellow users.
 - **Follow Us:** Follow us on social media for real-time updates and announcements.
 
-
-Thank you for choosing [Skribbl.io](https://skribblio.dinoscapedinosc.repl.co). We are looking forward to help you have more fun with everyone you meet!
+**Thank you for choosing [Skribbl.io](https://skribblio.dinoscapedinosc.repl.co). We are looking forward to help you have more fun with everyone you meet!**
